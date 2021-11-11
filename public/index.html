@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Livvic"
+    rel="stylesheet"
+    label="fonts"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Inter"
+    rel="stylesheet"
+    label="fonts"
+  />
+  <link href="%PUBLIC_URL%/styles.css" rel="stylesheet" />
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGZOhb6qWmy1PLYJrLmtBho18Vasw0C_U&v=3.exp&libraries=places"></script>
+  <!-- https://maps.googleapis.com/maps/api/js?key=AIzaSyDGZOhb6qWmy1PLYJrLmtBho18Vasw0C_U&v=3.exp&libraries=,drawing -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,800,900,500i,600i&display=swap"
+    rel="stylesheet" />
+  <!-- <link
+            href="https://fonts.googleapis.com/css?family=Tinos&display=swap"
+            rel="stylesheet"
+          ></link> -->
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <style type="text/css">
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ipl-progress-indicator.available {
+      opacity: 0;
+    }
+
+    .ipl-progress-indicator {
+      background-color: #f5f5f5;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      opacity: 1;
+      pointer-events: none;
+      -webkit-transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 436ms;
+      -moz-transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 436ms;
+      transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 436ms;
+      z-index: 9999;
+    }
+
+    .insp-logo-frame {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center;
+      align-items: center;
+      -webkit-animation: fadein 436ms;
+      -moz-animation: fadein 436ms;
+      animation: fadein 436ms;
+      height: 98%;
+    }
+
+    .logo-wrapper {
+      height: 100px !important;
+      width: 100px !important;
+    }
+
+    .logo-wrapper img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .insp-logo-frame-img {
+      width: 112px;
+      height: 112px;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center;
+      border-radius: 50%;
+    }
+
+    .ipl-progress-indicator-head {
+      background-color: #c6dafc;
+      height: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ipl-progress-indicator .first-indicator,
+    .ipl-progress-indicator .second-indicator {
+      background-color: #F47D25;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      transform-origin: left center;
+      -webkit-transform: scaleX(0);
+      -moz-transform: scaleX(0);
+      transform: scaleX(0);
+    }
+
+    .ipl-progress-indicator .first-indicator {
+      -webkit-animation: first-indicator 2000ms linear infinite;
+      -moz-animation: first-indicator 2000ms linear infinite;
+      animation: first-indicator 2000ms linear infinite;
+    }
+
+    .ipl-progress-indicator .second-indicator {
+      -webkit-animation: second-indicator 2000ms linear infinite;
+      -moz-animation: second-indicator 2000ms linear infinite;
+      animation: second-indicator 2000ms linear infinite;
+    }
+
+    .ipl-progress-indicator .insp-logo {
+      animation: App-logo-spin infinite 20s linear;
+      border-radius: 50%;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center;
+    }
+
+    @keyframes App-logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @-moz-keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes first-indicator {
+      0% {
+        transform: translate(0%) scaleX(0);
+      }
+
+      25% {
+        transform: translate(0%) scaleX(0.5);
+      }
+
+      50% {
+        transform: translate(25%) scaleX(0.75);
+      }
+
+      75% {
+        transform: translate(100%) scaleX(0);
+      }
+
+      100% {
+        transform: translate(100%) scaleX(0);
+      }
+    }
+
+    @keyframes second-indicator {
+      0% {
+        transform: translate(0%) scaleX(0);
+      }
+
+      60% {
+        transform: translate(0%) scaleX(0);
+      }
+
+      80% {
+        transform: translate(0%) scaleX(0.6);
+      }
+
+      100% {
+        transform: translate(100%) scaleX(0.1);
+      }
+    }
+  </style>
+  <title>Launch Portal Admin</title>
+  <meta property="og:image" content="" />
+  <meta itemProp="image" content="" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="design,designer,tshirt" />
+  <meta itemProp="title" content="Base Admin" />
+  <meta itemProp="description" content="" />
+  <meta property="og:title" content="Base Admin" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Base Admin" />
+  <meta property="og:image:width" content="1400" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:description" content="" />
+</head>
+
+<body>
+  <noscript> You need to enable JavaScript to run this app. </noscript>
+  <div class="ipl-progress-indicator" id="ipl-progress-indicator">
+    <div class="ipl-progress-indicator-head">
+      <div class="first-indicator"></div>
+      <div class="second-indicator"></div>
+    </div>
+    <div class="insp-logo-frame">
+      <div class="logo-wrapper">
+        <svg width="76" height="82" viewBox="0 0 76 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M29.6101 11.6308L29.594 11.6158L27.2728 11.5949L22.6442 11.5501C19.5007 8.37346 16.1256 5.39905 12.5425 2.64773C9.23471 0.350145 4.26548 0.00802605 0.845417 0.00191472C0.743753 -0.00505311 0.641617 0.00704022 0.54515 0.037478C0.448683 0.0679157 0.359876 0.11606 0.284089 0.179018L0.70974 0.58184L0.312762 0.207498C0.243206 0.276243 0.189396 0.357238 0.154556 0.445646C0.119715 0.534053 0.104553 0.628055 0.109995 0.722C0.0451068 3.87941 0.310116 8.4741 2.71974 11.5757C5.61211 14.9404 8.75033 18.1184 12.1124 21.0876L12.0394 27.5286L12.0287 27.5498L16.3034 31.5668C17.723 27.8584 20.0393 24.4976 23.0763 21.7396C26.1132 18.9817 29.791 16.8991 33.8302 15.6501L29.6101 11.6308ZM13.2439 12.2003C12.6614 12.7288 11.9223 13.0859 11.1199 13.2266C10.3176 13.3672 9.48814 13.285 8.73642 12.9903C7.9847 12.6956 7.34448 12.2017 6.89674 11.5711C6.449 10.9404 6.21385 10.2014 6.22101 9.4473C6.22818 8.69325 6.47734 7.9581 6.93699 7.3348C7.39664 6.7115 8.04613 6.22806 8.80333 5.94561C9.56054 5.66315 10.3914 5.59437 11.191 5.74797C11.9905 5.90156 12.7228 6.27064 13.2951 6.80851C14.0627 7.52977 14.4885 8.50303 14.4789 9.51418C14.4693 10.5253 14.025 11.4915 13.2439 12.2003V12.2003Z" fill="#F5A303"/>
+          <path d="M75.4648 40.0971C75.5133 35.2197 74.2967 30.4025 71.9169 26.0481C69.5371 21.6936 66.0631 17.9284 61.7852 15.0671C57.5074 12.2057 52.55 10.3314 47.3273 9.60072C42.1046 8.87005 36.7685 9.30427 31.7647 10.8671L36.2484 15.0805C42.2361 13.8185 48.5092 14.4447 54.0665 16.8591C59.6239 19.2736 64.1453 23.3372 66.9095 28.4015C69.6736 33.4659 70.5212 39.2392 69.3169 44.8003C68.1127 50.3614 64.9259 55.3898 60.2653 59.0833C56.1573 53.1828 46.0955 40.4115 25.7892 22.9596C25.7892 22.9596 48.5655 45.2396 56.9696 61.3286C52.3322 64.0213 46.929 65.3726 41.4537 65.2092C35.9785 65.0458 30.6811 63.3751 26.2416 60.4115C21.8021 57.4479 18.4232 53.3268 16.5387 48.5771C14.6542 43.8275 14.35 38.6662 15.6653 33.7558L11.181 29.5417C9.07819 34.9666 8.67985 40.83 10.0319 46.455C11.384 52.08 14.4314 57.2372 18.8223 61.3312L18.8184 61.3294C18.8184 61.3294 49.4861 90.3412 62.1616 78.8404C62.1616 78.8404 67.9012 73.631 63.0887 63.664C66.9171 60.8307 70.0141 57.2456 72.1549 53.1692C74.2956 49.0928 75.4263 44.6273 75.4648 40.0971ZM58.2932 75.422C58.2932 75.422 52.3074 80.8666 39.3505 70.2679C40.2466 70.3425 41.1502 70.3934 42.0657 70.4008C48.0557 70.457 53.9491 69.0044 59.1119 66.1992C60.4648 70.1581 60.4498 73.429 58.2932 75.422Z" fill="#00537A"/>
+        </svg>          
+      </div>
+    </div>
+  </div>
+  <div id="root"></div>
+  <!-- Load Facebook SDK for JavaScript -->
+
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v7.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="%PUBLIC_URL%/js/tinymce/tinymce.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+{
+  "appInfo": {
+    "footer": "Pet",
+    "name": "Tinder4Pet Admin"
+  },
+  "sideBar": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "cms": "CMS",
+    "settings": "Settings"
+  },
+  "header": {
+    "profile": "Profile",
+    "pharmacy": "Pharmacy info",
+    "logout": "Logout"
+  },
+  "input": {
+    "username": {
+      "placeholder": "Username",
+      "validateMsg": {
+        "required": "Please input your username!"
+      }
+    },
+    "address": {
+      "name": "Address",
+      "placeholder": "Address",
+      "validateMsg": {
+        "required": "Please input your Address!"
+      }
+    },
+    "fullName": {
+      "placeholder": "Full Name",
+      "validateMsg": {
+        "required": "Please input your full name!"
+      }
+    },
+    "firstName": {
+      "name": "First Name",
+      "placeholder": "First Name",
+      "validateMsg": {
+        "required": "Please input your first name!"
+      }
+    },
+    "lastName": {
+      "name": "Last Name",
+      "placeholder": "Last Name",
+      "validateMsg": {
+        "required": "Please input your last name!"
+      }
+    },
+    "password": {
+      "placeholder": "Password",
+      "validateMsg": {
+        "required": "Please input your password!"
+      }
+    },
+    "confirmPassword": {
+      "placeholder": "Confirm Password",
+      "validateMsg": {
+        "required": "Please input your confirm password!"
+      }
+    },
+    "email": {
+      "name": "Email",
+      "placeholder": "Email",
+      "validateMsg": {
+        "invalid": "Email is invalid",
+        "required": "Please input your email!"
+      }
+    }
+  },
+  "form": {
+    "btn": {
+      "add": "Add new",
+      "edit": "Edit"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "subTitle": "The innovative mobile apps and webs for Schools and Parent to take care our kids",
+    "rememberMe": "Remember me",
+    "loginBtn": "Log in",
+    "yourEmail": "Your Email",
+    "resetPassword": "Reset password",
+    "password": "Password"
+  },
+  "action": "Action",
+  "dashboard": {
+    "startUpChart": "Active Startup Chart",
+    "title": "Dashboard",
+    "header": "Dashboard",
+    "reviewChart": "Review Chart"
+  },
+  "settings": {
+    "header": "Settings"
+  },
+  "home": {
+    "title": {
+      "orders": "Orders",
+      "overview": "Overview"
+    },
+    "summary": {
+      "user": "Users",
+      "order": "Orders",
+      "artists": "Artists",
+      "artworks": "Artworks",
+      "galleries": "Galleries",
+      "business": "Business",
+      "totalOrder": "Total Order",
+      "totalDoneOrder": "Done Order",
+      "paidMoney": "Paid Money"
+    },
+    "chart": {
+      "title": "Revenue",
+      "sales": "Sales",
+      "profit": "Profit"
+    },
+    "map": {
+      "title": "Top Global Sales"
+    },
+    "country": {
+      "buenosAires": "Buenos Aires",
+      "brasilia": "Brasilia",
+      "santiago": "Santiago",
+      "bogota": "Bogota"
+    },
+    "detailedSummary": {
+      "monthRevenue": "This Month Revenue",
+      "chartRevenue": {
+        "revenue": "Revenue"
+      },
+      "customer": "New Customers",
+      "product": "Popular Product"
+    }
+  },
+  "profile": {
+    "header": "Profile",
+    "profileInfo": "Profile info",
+    "email": "Email",
+    "uploadAvatar": "Upload avatar",
+    "username": "Username",
+    "firstName": "First name",
+    "address": "Address",
+    "lastName": "Last name",
+    "gender": "Gender",
+    "phone": "Phone",
+    "summary": "Summary",
+    "note": "Your note",
+    "fullName": "Full Name",
+    "birthday": "Birthday",
+    "national": "National",
+    "facebookLink": "Facebook Link"
+  },
+  "summary": {
+    "startUp": "Startup",
+    "inProgress": "In Progress",
+    "waitingFeedback": "Waiting Feedback",
+    "done": "Done",
+    "cancelled": "Cancelled",
+    "coach": "Coach",
+    "program": "Program",
+    "service": "Service"
+  },
+  "notifications": {
+    "header": "Notifications",
+    "pharmacy": "Pharmacy",
+    "send": "Sending",
+    "prepare": "Preparing",
+    "delivery": "Delivery"
+  },
+  "admins": {
+    "createPage": "Create Admin"
+  },
+  "isActive": {
+    "deactive": "Inactive",
+    "active": "Active"
+  },
+  "isDisabled": {
+    "disabled": "Disabled",
+    "notDisabled": "Not disabled"
+  },
+  "role": {},
+  "button": {
+    "generate": "Generate",
+    "genCMS": "Generate programs to landing page",
+    "create": "Create",
+    "add": "Add",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save",
+    "ok": "Ok",
+    "search": "Search",
+    "reset": "Reset",
+    "resetMyPassword": "Reset Password",
+    "submit": "Submit",
+    "call": "Call",
+    "loadMore": "Load More...",
+    "sentInvite": "Sent Invite",
+    "resendInvite": "Resend Invite",
+    "editProfile": "Edit profile",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "filter": "Filter",
+    "clearFilter": "Clear",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to Cart",
+    "updateToCart": "Update to Cart",
+    "apply": "Apply",
+    "subscribe": "Subscribe",
+    "change": "Change",
+    "confirm": "Confirm",
+    "placeYourOrder": "Place Your Order",
+    "accept": "Accept",
+    "reject": "Reject",
+    "changePassword": "Change Password",
+    "duplicate": "Clone New",
+    "reOpen": "Open Again",
+    "setDefault": "Default"
+  },
+  "popup": {
+    "noData": "No data",
+    "alertDelete": "Delete Data",
+    "alertDeleteDes": "Do you want to delete item {{customMessage}}?"
+  },
+  "error": {
+    "validateType": "Invalid",
+    "title": "Oops!",
+    "description": "Some thing wrong!",
+    "phone": "The input is not valid Phone!",
+    "waitingUpdate": "Waiting for updates",
+    "required": "This field is required",
+    "url": "Please enter a valid url"
+  },
+  "success": {
+    "title": "Successfully!",
+    "description": "the update is successful!"
+  },
+  "statuses": {
+    "name": "Name",
+    "color": "Color",
+    "isActive": "Status",
+    "createPage": "Create Status",
+    "editPage": "Edit Status"
+  },
+  "gender": {
+    "title": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "inprogress": "In Progress",
+    "pending": "Pending",
+    "completed": "Completed",
+    "developing": "Developing",
+    "approved": "Approved",
+    "waitingForFeedback": "Waiting for feedback",
+    "done": "Done",
+    "cancel": "Cancel"
+  },
+  "placeholder": {
+    "undefined": "select..."
+  },
+  "text": {
+    "or": "OR",
+    "googleAddress": "Google Address(use detect latitude, longitude)"
+  },
+  "currencyUnit": {
+    "text": "VND",
+    "sign": "$"
+  },
+  "medias": {
+    "attachedImage": "Attached Image(s)",
+    "attachedFile": "Attached File(s)",
+    "empty": "No files attached"
+  },
+  "users": {
+    "privateEmail": "Private Email",
+    "privatePhone": "Private Phone",
+    "sectorPlaceholder": "Type & enter to add a sector",
+    "companyName": "Business Name",
+    "sector": "Sector",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "createPage": "Create User",
+    "editPage": "Edit User",
+    "header": "Users",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone",
+    "password": "Password",
+    "role": "Role",
+    "actions": "Actions",
+    "username": "User Name",
+    "contact": "Contact Email",
+    "userType": "User Type",
+    "createdAt": "Created Date",
+    "status": "Status",
+    "usersManagement": "User Management",
+    "phoneNo": "Phone Number",
+    "placeholder": {
+      "status": "Select Status",
+      "name": "Enter Name, Email or Phone Number",
+      "role": "Select Role"
+    }
+  },
+  "noData": "No data",
+  "upload": {
+    "uploadText": "Drag and drop files here or",
+    "browse": "browse"
+  },
+
+  "pageHeader": {
+    "descStartupDetail": "Startup section includes all details of each startup: Basic information, Current program, Resources, More Info, Tasks.",
+    "descProgramDetail": "Program section includes program details with 3 main parts: Learn, Do, Get.",
+    "descUsers": "User Management section includes all details of users who registered account: startup, coach, service provider.",
+    "descOrders": "Order Management includes details of order made by Startup.",
+    "descSubscriptions": "Subscription Plan section contain list of Subscription Plan with details. Admin can add new subscription plan.",
+    "descSupportRequests": "Support Request includes all requests created from Contact Us section of landing page."
+  }
+}
