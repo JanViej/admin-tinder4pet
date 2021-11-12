@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { notification } from 'antd';
 import {
-  loginApi,
-  // deleteInstallationApi,
   updateCurrentUserApi,
-  getCurrentUserApi,
+  // getCurrentUserApi,
   resetPasswordApi,
   forgotPasswordApi,
   registerApi,
@@ -12,6 +11,10 @@ import {
   subscribeUserApi,
   changePasswordApi,
 } from 'api/user';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 // import api
 import { apiWrapper } from 'utils/reduxUtils';
 
@@ -19,24 +22,22 @@ export const login = createAsyncThunk(
   'auth/login',
   async (payload, thunkAPI) => {
     try {
-      const response = await apiWrapper(
-        {
-          isShowLoading: true,
-          isShowSuccessNoti: false,
-        },
-        loginApi,
-        payload,
+      const response = await firebase.auth().signInWithEmailAndPassword(
+        payload?.email,
+        payload?.password,
       );
-      if (response) {
-        localStorage.setItem('sessionToken', response.accessToken);
-        localStorage.setItem('refreshToken', response.refreshToken);
-        localStorage.setItem('fullName', response.user?.email);
-        localStorage.setItem('userId', response.user?.id);
-        return response.user;
-      }
-      return thunkAPI.rejectWithValue(response);
+      const idToken = await response.user.getIdTokenResult(true)
+      
+      localStorage.setItem('sessionEmail', idToken.claims.email);
+      localStorage.setItem('sessionToken', idToken.token);
+      thunkAPI.dispatch(getCurrentUser());
+      return response;
     } catch (error) {
-      return thunkAPI.rejectWithValue();
+      notification.error({
+        message: 'OOps',
+        description: error.message,
+      });
+      return thunkAPI.rejectWithValue(error);
     }
   },
 );
@@ -98,8 +99,9 @@ export const getCurrentUser = createAsyncThunk(
   'auth/getCurrentUser',
   async (payload, thunkAPI) => {
     try {
-      const response = await apiWrapper({}, getCurrentUserApi);
-      return response;
+      return firebase.firestore().collection('account').where('gmail', '==', localStorage.getItem('sessionEmail'))
+        .get()
+        .then(query => query.docs[0].data())
       // eslint-disable-next-linea
     } catch (error) {
       return thunkAPI.rejectWithValue();
@@ -111,12 +113,14 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (payload, thunkAPI) => {
     try {
-      localStorage.removeItem('sessionToken');
-      localStorage.removeItem('refreshToken');
-      
-      localStorage.removeItem('fullName');
-      localStorage.removeItem('userId');
-      window.location.href = '/';
+      firebase.auth().signOut().then(() => {
+        localStorage.removeItem('sessionToken');
+        localStorage.removeItem('refreshToken');
+        
+        localStorage.removeItem('fullName');
+        localStorage.removeItem('userId');
+        window.location.href = '/';
+      });
       return {};
     } catch (error) {
       return thunkAPI.rejectWithValue();

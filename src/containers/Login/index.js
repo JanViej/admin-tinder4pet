@@ -9,10 +9,7 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
   const onSubmit = values => {
-    dispatch(login({
-      ...values,
-      isNotAdminUrl: true,
-    }));
+    dispatch(login(values));
   }
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 

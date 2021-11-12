@@ -2,16 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '@redux/auth/actions';
 import { useLocation } from 'react-router';
-import { PicCenterOutlined, TeamOutlined } from '@ant-design/icons';
 import i18next from 'i18next';
 import PropTypes from 'prop-types';
 import {
-  CardIcon,
   DashboardIcon,
   PuzzleIcon,
-  RequestIcon,
-  RocketIcon,
-  WalletIcon,
 } from 'components/common/SVGIcon';
 import PrivateLayout from './Layout';
 import { PrivateLayoutWrapper } from './styles';
@@ -24,68 +19,29 @@ const listMenu = [
     icon: DashboardIcon,
   },
   {
-    key: 'startUps',
-    title: 'Startup',
-    url: '/startUps',
+    key: 'users',
+    title: 'Users',
+    url: '/users',
     icon: PuzzleIcon,
   },
-  // {
-  //   key: 'coach',
-  //   title: 'Coach',
-  //   url: '',
-  //   icon: UserIcon,
-  // },
   {
-    key: 'cms',
-    title: 'CMS',
-    url: '/cms',
-    icon: PicCenterOutlined,
+    key: 'applications',
+    title: 'Applications',
+    url: '/applications',
+    icon: PuzzleIcon,
   },
   {
-    key: 'programs',
-    title: 'Programs',
-    url: '/programs',
-    icon: RocketIcon,
+    key: 'vets',
+    title: 'Vets',
+    url: '/vets',
+    icon: PuzzleIcon,
   },
   {
-    key: 'users',
-    title: 'User Management',
-    url: '/users',
-    icon: TeamOutlined,
+    key: 'settings',
+    title: 'Settings',
+    url: '/settings/introSliders',
+    icon: PuzzleIcon,
   },
-  {
-    key: 'orders',
-    title: 'Order Management',
-    url: '/orders',
-    icon: WalletIcon,
-    noFill: true,
-  },
-  {
-    key: 'subscriptionPlans',
-    title: 'Subscription Plans',
-    url: '/subscriptionPlans',
-    icon: CardIcon,
-    noFill: true,
-  },
-  {
-    key: 'supports',
-    title: 'Support request',
-    url: '/supports',
-    icon: RequestIcon,
-    noFill: true,
-  },
-  // {
-  //   key: 'onBoarding',
-  //   title: 'On Boarding',
-  //   url: '',
-  //   icon: OnBoardingIcon,
-  // },
-  // {
-  //   key: 'configuration',
-  //   title: 'Configuration',
-  //   url: '',
-  //   icon: SettingIcon,
-  // },
 ];
 
 const getCurrentTab = (str, key) => {

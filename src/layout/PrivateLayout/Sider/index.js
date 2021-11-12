@@ -1,8 +1,10 @@
+/* eslint-disable */
 import React from 'react';
 import { Menu } from 'antd';
 import PropTypes from 'prop-types';
 import logo from 'assets/images/logo.png';
 import fullLogo from 'assets/images/fullLogo.png';
+import logoSVG from 'assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { SiderWrapper } from './styles';
 
@@ -22,7 +24,7 @@ const Sider = ({ menus, isCollapse, selectedKey }) => {
           {isCollapse && (
             <img className="img collapsed-logo" src={logo} alt="" />
           )}
-          <img className="img full-logo" src={fullLogo} alt="" />
+          <img className="img full-logo" src={logoSVG} alt="" />
         </div>
       </Link>
       <Menu mode="inline">

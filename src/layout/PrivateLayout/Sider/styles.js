@@ -47,40 +47,20 @@ export const SiderWrapper = styled(Sider)`
   }
 
   .isSelected {
-    color: ${({ theme }) => theme.palette.primary};
+    color: #fff;
     border-left: 3px solid ${({ theme }) => theme.palette.primary};
 
     .cms-link-menu-item {
-      color: ${({ theme }) => theme.palette.primary};
+      color: #fff;
     }
     .ant-menu-title-content {
-      background-color: ${({ theme }) => `${theme.palette.primary}20`};
+      background-color: ${({ theme }) => `${theme.palette.primary}`};
     }
 
     &.ant-menu-item {
-      .img-icon {
-        filter: invert(90%) sepia(60%) saturate(553%) hue-rotate(348deg)
-          brightness(102%) contrast(101%);
-      }
       span {
-        color: ${({ theme }) => theme.palette.primary};
+        color: #fff;
       }
-    }
-  }
-
-  .isSelected.allowFill {
-    &:hover {
-      .img-icon {
-        filter: invert(90%) sepia(60%) saturate(553%) hue-rotate(348deg)
-          brightness(102%) contrast(101%);
-      }
-    }
-  }
-
-  .ant-menu-item:hover {
-    .img-icon {
-      filter: invert(90%) sepia(60%) saturate(553%) hue-rotate(348deg)
-        brightness(102%) contrast(101%);
     }
   }
 
@@ -90,13 +70,6 @@ export const SiderWrapper = styled(Sider)`
     flex-grow: 2;
     align-items: flex-end;
     justify-content: center;
-  }
-
-  .ant-menu-item-selected {
-    .img-icon {
-      filter: invert(90%) sepia(60%) saturate(553%) hue-rotate(348deg)
-        brightness(102%) contrast(101%);
-    }
   }
 
   .img {
@@ -242,7 +215,7 @@ export const SiderWrapper = styled(Sider)`
     .img {
       padding: 30px 20px 20px;
       margin: auto;
-      height: 80px;
+      height: x0px;
     }
   }
 `;

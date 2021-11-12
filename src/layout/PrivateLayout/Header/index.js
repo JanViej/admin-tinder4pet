@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Avatar, Dropdown, Button, Menu } from 'antd';
 import PropTypes from 'prop-types';
@@ -29,9 +30,9 @@ const Header = ({
   return (
     <HeaderWrapper>
       <div className="searching-section">
-        <Button className="menu icon" onClick={handleCollapse}>
+        {/* <Button className="menu icon" onClick={handleCollapse}>
           {isCollapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </Button>
+        </Button> */}
       </div>
       <div className="user-section">
         <div className="name">

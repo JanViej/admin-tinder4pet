@@ -14,7 +14,7 @@ export const checkError = async (res) => {
         if (response?.accessToken && response?.refreshToken) {
           localStorage.setItem('sessionToken', response?.accessToken);
           localStorage.setItem('refreshToken', response?.refreshToken);
-          window.location.reload();
+          // window.location.reload();
         }
       } else {
         notification.error({

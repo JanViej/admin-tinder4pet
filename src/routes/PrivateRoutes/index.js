@@ -5,12 +5,20 @@ import { Route, Redirect } from 'react-router-dom';
 import { flatMap, map } from 'lodash';
 import { checkRole } from 'utils/tools';
 import Home from 'pages/Dashboard';
+import Users from 'pages/Users/List';
 import PrivateLayoutPage from 'layout/PrivateLayout';
 
 const routes = [
   {
     path: '/',
     component: Home,
+    exact: true,
+    title: 'dashboard.title',
+    hasPrivateLayoutWrapper: true,
+  },
+  {
+    path: '/users',
+    component: Users,
     exact: true,
     title: 'dashboard.title',
     hasPrivateLayoutWrapper: true,

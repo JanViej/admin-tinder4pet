@@ -71,8 +71,11 @@ const { reducer } = createSlice({
       state.loading = false;
     },
     [getCurrentUser.fulfilled]: (state, { payload }) => {
-      state.data = payload;
-      state.role = payload?.role?.name;
+      state.data = {
+        ...payload,
+        email: payload.gmail,
+      };
+      state.role = payload?.role;
     },
     [logout.fulfilled]: (state) => {
       state.isAuth = false;

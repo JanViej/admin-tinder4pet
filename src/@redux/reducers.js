@@ -4,6 +4,7 @@ import modal from './modal/slice';
 import loading from './loading/slice';
 import reference from './referenceData/slice';
 import config from './config/slice';
+import users from './users/slice';
 // import here
 import programPhases from './programPhases/slice';
 
@@ -15,5 +16,6 @@ export default () =>
     reference,
     loading,
     // add reducer here
+    users,
     programPhases,
   });

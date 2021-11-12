@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import {
   Switch,
@@ -34,18 +35,18 @@ const Routes = () => {
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(getCurrentUser());
-      dispatch(getProgramSummary());
-      dispatch(getStartUpSummary());
-      dispatch(getUserReport({
-        startDate: moment().startOf('month').format('YYYY-MM-DD'),
-        endDate: moment().endOf('month').format('YYYY-MM-DD'),
-        groupBy: 'day',
-      }));
-      dispatch(getStartUpReport({
-        startDate: moment().startOf('month').format('YYYY-MM-DD'),
-        endDate: moment().endOf('month').format('YYYY-MM-DD'),
-        groupBy: 'day',
-      }));
+      // dispatch(getProgramSummary());
+      // dispatch(getStartUpSummary());
+      // dispatch(getUserReport({
+      //   startDate: moment().startOf('month').format('YYYY-MM-DD'),
+      //   endDate: moment().endOf('month').format('YYYY-MM-DD'),
+      //   groupBy: 'day',
+      // }));
+      // dispatch(getStartUpReport({
+      //   startDate: moment().startOf('month').format('YYYY-MM-DD'),
+      //   endDate: moment().endOf('month').format('YYYY-MM-DD'),
+      //   groupBy: 'day',
+      // }));
     }
     // eslint-disable-next-line
   }, [isAuthenticated]);
