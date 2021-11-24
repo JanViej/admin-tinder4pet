@@ -4,7 +4,7 @@ import { Card } from 'antd';
 export const CardWrapper = styled(Card)`
   border: none;
   .ant-card-head {
-    background: #ffb21d70;
+    background: #FFAC9C70;
     .ant-card-head-wrapper {
       text-align: center;
       font-size: 20px;

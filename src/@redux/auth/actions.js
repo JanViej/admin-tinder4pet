@@ -27,11 +27,18 @@ export const login = createAsyncThunk(
         payload?.password,
       );
       const idToken = await response.user.getIdTokenResult(true)
-      
-      localStorage.setItem('sessionEmail', idToken.claims.email);
-      localStorage.setItem('sessionToken', idToken.token);
-      thunkAPI.dispatch(getCurrentUser());
-      return response;
+      const data = await (thunkAPI.dispatch(getCurrentUser()))
+      if (data?.payload?.role === 'admin') {
+        localStorage.setItem('sessionEmail', idToken.claims.email);
+        localStorage.setItem('sessionToken', idToken.token);
+        thunkAPI.dispatch(getCurrentUser());
+        return response;
+      }
+      notification.error({
+        message: 'OOps',
+        description: "You don't have permission!",
+      });
+      return thunkAPI.rejectWithValue(data);
     } catch (error) {
       notification.error({
         message: 'OOps',

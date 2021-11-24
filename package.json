@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/charts": "^1.2.14",
     "@ant-design/icons": "^4.3.0",
     "@react-pdf/renderer": "2.0.15",
     "@reduxjs/toolkit": "^1.4.0",

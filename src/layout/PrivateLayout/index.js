@@ -31,6 +31,12 @@ const listMenu = [
     icon: PuzzleIcon,
   },
   {
+    key: 'stores',
+    title: 'Stores',
+    url: '/stores',
+    icon: PuzzleIcon,
+  },
+  {
     key: 'vets',
     title: 'Vets',
     url: '/vets',

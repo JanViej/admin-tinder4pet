@@ -278,6 +278,7 @@
     "empty": "No files attached"
   },
   "users": {
+    "detailUser": "User Detail",
     "privateEmail": "Private Email",
     "privatePhone": "Private Phone",
     "sectorPlaceholder": "Type & enter to add a sector",
@@ -287,7 +288,7 @@
     "lastName": "Last name",
     "createPage": "Create User",
     "editPage": "Edit User",
-    "header": "Users",
+    "header": "Users Management",
     "name": "Name",
     "email": "Email",
     "phoneNumber": "Phone",
@@ -306,6 +307,9 @@
       "name": "Enter Name, Email or Phone Number",
       "role": "Select Role"
     }
+  },
+  "vets": {
+    "header": "Vets Management"
   },
   "noData": "No data",
   "upload": {

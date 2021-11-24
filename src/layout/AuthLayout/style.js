@@ -11,14 +11,14 @@ export const AuthWrapper = styled.div`
     line-height: 20px;
     color: #4c6fff;
     :hover {
-      color: #F5A303;
+      color: #FFAC9C;
     }
   }
 
   .sign-up, .sign-in {
     color: #4c6fff;
     :hover {
-      color: #F5A303;
+      color: #FFAC9C;
     }
   }
 
@@ -46,7 +46,7 @@ export const AuthWrapper = styled.div`
       width: 100%;
       border: none;
       color: white;
-      background: orange;
+      background: #FFAC9C;
       height: 45px;
       border-radius: 8px;
       margin-top: 14px;
@@ -55,9 +55,9 @@ export const AuthWrapper = styled.div`
     .left-side {
       img {
         width: 100%;
-        max-width: 400px;
+        height: 100%;
+        object-fit: cover
       }
-      padding: 0 40px;
       background-color: #fef6e6;
       justify-content: center;
       display: flex;

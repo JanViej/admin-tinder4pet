@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
   width: 100%;
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   align-items: center;
   height: fit-content;
   transition: padding-left 0.3s ease 0.1s, padding-right 0.3s ease 0.1s,
@@ -57,4 +57,6 @@ export default styled.div`
     color: #808da4;
     white-space: break-spaces;
   }
+
+  
 `;

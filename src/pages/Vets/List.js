@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers, disableUser } from '@redux/users/actions';
-import { Breadcrumb, Table, Space, Avatar, Divider, Switch, Button } from 'antd';
+import { getVets, disableVet } from '@redux/vets/actions';
+import { Breadcrumb, Table, Space, Avatar, Divider, Switch, Button, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
-import i18next from 'i18next';
-import { MaleIcon, FemaleIcon } from 'components/SVGIcon';
 import PageTitle from 'components/common/PageTitle';
 import { useHistory } from 'react-router';
 import {
@@ -15,50 +13,21 @@ import {HomeWrapper} from './styles';
 const Home = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const users = useSelector(state => state.users.data);
-  const loading = useSelector(state => state.users.loading);
+  const vets = useSelector(state => state.vets.data);
+  const loading = useSelector(state => state.vets.loading);
 
   const columns = [
     {
-      title: 'Pet',
-      dataIndex: 'petName',
-      key: 'petName',
+      title: 'Vet Name',
+      dataIndex: 'name',
+      key: 'name',
       render: (text, row) => (
         <Space style={{ display: 'flex', alignItems: 'center'}}>
-          <Avatar src={row.avatar} size={56} />
+          <Avatar src={row.cover} size={56} />
           <b>
             {text}
-            {' '}
-            {row.petGender === 'male' && (
-              <MaleIcon />
-            )}
-            {row.petGender === 'female' && (
-              <FemaleIcon />
-            )}
           </b>
         </Space>
-      ),
-    },
-    {
-      title: 'Breed',
-      dataIndex: 'breed',
-      key: 'breed',
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Owner',
-      dataIndex: 'ownerName',
-      key: 'ownerName',
-      render: (ownerName, row) => (
-        <div>
-          <b>{ownerName}</b>
-          <div>{row.gmail}</div>
-          <div>{row.phoneNumber}</div>
-        </div>
       ),
     },
     {
@@ -67,13 +36,47 @@ const Home = () => {
       key: 'address',
     },
     {
+      title: 'Manager',
+      dataIndex: 'admin',
+      key: 'admin',
+      // width: 260,
+      render: (text, row) => (
+        <Row gutter={[10, 10]}>
+          <Col span={6}>
+            Name:
+          </Col>
+          <Col span={18}>
+            {text}
+          </Col>
+          <Col span={6}>
+            Email: 
+          </Col>
+          <Col span={18}>
+            {row?.email}
+          </Col>
+          <Col span={6}>
+            Phone:
+          </Col>
+          <Col span={18}>
+            {row?.phone}
+          </Col>
+        </Row>
+      ),
+    },
+
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
+    },
+    {
       title: 'Active',
       dataIndex: 'isActive',
       key: 'isActive',
       render: (isActive, row) => (
         <Switch
           checked={isActive}
-          onChange={checked => dispatch(disableUser({
+          onChange={checked => dispatch(disableVet({
           id: row.id,
           isActive: checked,
         }))}
@@ -86,7 +89,7 @@ const Home = () => {
       width: 120,
       render: (text, record) => (
         <Space size="middle">
-          <Button className="btn-view" onClick={() => history.push(`/users/${record.id}`)}>
+          <Button className="btn-view" onClick={() => history.push(`/vets/${record.id}`)}>
             <EyeOutlined />
 
           </Button>
@@ -96,7 +99,7 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getVets());
     // eslint-disable-next-line
   }, []);
   return (
@@ -104,14 +107,14 @@ const Home = () => {
       <PageTitle className="breadcrumb-section">
         <Breadcrumb separator="/">
           <Breadcrumb.Item>
-            <Link to="/users">
-              <h1>{i18next.t('users.header')}</h1>
+            <Link to="/vets">
+              <h1>Vets Management</h1>
             </Link>
           </Breadcrumb.Item>
         </Breadcrumb>
       </PageTitle>
       <Divider />
-      <Table columns={columns} loading={loading} dataSource={users} />
+      <Table columns={columns} loading={loading} dataSource={vets} />
     </HomeWrapper>
   );
 };

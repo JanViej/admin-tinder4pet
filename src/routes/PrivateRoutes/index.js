@@ -5,8 +5,12 @@ import { Route, Redirect } from 'react-router-dom';
 import { flatMap, map } from 'lodash';
 import { checkRole } from 'utils/tools';
 import Home from 'pages/Dashboard';
-import Users from 'pages/Users/List';
+import UsersList from 'pages/Users/List';
+import UserDetail from 'pages/Users/Detail';
 import PrivateLayoutPage from 'layout/PrivateLayout';
+import VetsList from 'pages/Vets/List';
+import StoreList from 'pages/Stores/List';
+import ApplicationList from 'pages/Applications/List';
 
 const routes = [
   {
@@ -18,7 +22,42 @@ const routes = [
   },
   {
     path: '/users',
-    component: Users,
+    component: UsersList,
+    exact: true,
+    title: 'dashboard.title',
+    hasPrivateLayoutWrapper: true,
+  },
+  {
+    path: '/users/:id',
+    component: UserDetail,
+    exact: true,
+    title: 'dashboard.title',
+    hasPrivateLayoutWrapper: true,
+  },
+  // {
+  //   path: '/applications',
+  //   component: Users,
+  //   exact: true,
+  //   title: 'dashboard.title',
+  //   hasPrivateLayoutWrapper: true,
+  // },
+  {
+    path: '/vets',
+    component: VetsList,
+    exact: true,
+    title: 'dashboard.title',
+    hasPrivateLayoutWrapper: true,
+  },
+  {
+    path: '/stores',
+    component: StoreList,
+    exact: true,
+    title: 'dashboard.title',
+    hasPrivateLayoutWrapper: true,
+  },
+  {
+    path: '/applications',
+    component: ApplicationList,
     exact: true,
     title: 'dashboard.title',
     hasPrivateLayoutWrapper: true,
