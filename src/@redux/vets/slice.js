@@ -21,7 +21,7 @@ const { reducer } = createSlice({
       state.data = payload;
       state.loading = false;
     },
-    [getVets.rejected]: (state, { payload }) => {
+    [getVets.rejected]: (state) => {
       state.loading = false;
     },
     [disableVet.fulfilled]: (state, { payload }) => {

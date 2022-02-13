@@ -15,6 +15,7 @@ const Header = ({ onToggle, collapsed }) => {
   const dispatch = useDispatch();
   const currentRole = useSelector((state) => state.auth.role);
   const currentUser = useSelector((state) => state.auth.data);
+  console.log('asd currentUser', currentUser)
   // const notSeen = useSelector((state) => state.notifications.notSeen);
   // const [visible, setVisible] = useState(false);
   // const toggleDrawer = () => {

@@ -22,13 +22,17 @@ export const login = createAsyncThunk(
   'auth/login',
   async (payload, thunkAPI) => {
     try {
+
       const response = await firebase.auth().signInWithEmailAndPassword(
         payload?.email,
         payload?.password,
       );
       const idToken = await response.user.getIdTokenResult(true)
+      localStorage.setItem('sessionEmail', idToken.claims.email);
       const data = await (thunkAPI.dispatch(getCurrentUser()))
+      
       if (data?.payload?.role === 'admin') {
+        
         localStorage.setItem('sessionEmail', idToken.claims.email);
         localStorage.setItem('sessionToken', idToken.token);
         thunkAPI.dispatch(getCurrentUser());

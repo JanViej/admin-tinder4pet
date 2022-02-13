@@ -43,7 +43,7 @@ const Header = ({
           <Dropdown
             overlay={() => (
               <Menu style={{ minWidth: '120px' }}>
-                {profileMenu.map((menu) => (
+                {/* {profileMenu.map((menu) => (
                   <Menu.Item key={menu.key}>
                     <Link
                       to={menu.url}
@@ -53,7 +53,7 @@ const Header = ({
                     </Link>
                   </Menu.Item>
                 ))}
-                <Menu.Divider />
+                <Menu.Divider /> */}
                 <Menu.Item onClick={handleLogout} key="logout">
                   {i18next.t('header.logout')}
                 </Menu.Item>

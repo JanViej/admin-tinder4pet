@@ -42,12 +42,6 @@ const listMenu = [
     url: '/vets',
     icon: PuzzleIcon,
   },
-  {
-    key: 'settings',
-    title: 'Settings',
-    url: '/settings/introSliders',
-    icon: PuzzleIcon,
-  },
 ];
 
 const getCurrentTab = (str, key) => {
@@ -72,8 +66,8 @@ const PrivateLayoutPage = ({ children }) => {
   return (
     <PrivateLayoutWrapper>
       <PrivateLayout
-        userName={`${user?.firstName || ''} ${user?.lastName || ''}`}
-        roleName={user?.email}
+        userName={`${user?.email || ''}`}
+        roleName='Admin'
         avt={user.avatar}
         menus={listMenu}
         selectedKey={url || 'dashboard'}

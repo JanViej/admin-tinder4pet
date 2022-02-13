@@ -6,7 +6,6 @@ import { flatMap, map } from 'lodash';
 import { checkRole } from 'utils/tools';
 import Home from 'pages/Dashboard';
 import UsersList from 'pages/Users/List';
-import UserDetail from 'pages/Users/Detail';
 import PrivateLayoutPage from 'layout/PrivateLayout';
 import VetsList from 'pages/Vets/List';
 import StoreList from 'pages/Stores/List';
@@ -23,13 +22,6 @@ const routes = [
   {
     path: '/users',
     component: UsersList,
-    exact: true,
-    title: 'dashboard.title',
-    hasPrivateLayoutWrapper: true,
-  },
-  {
-    path: '/users/:id',
-    component: UserDetail,
     exact: true,
     title: 'dashboard.title',
     hasPrivateLayoutWrapper: true,
