@@ -1,68 +1,62 @@
 import styled from 'styled-components';
 
 export const SummaryCardWrapper = styled.div`
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  background: ${({ theme }) => theme.background.content};
-  border-radius: 4px;
-  ${'' /* box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15); */}
-  padding: 15px 20px 20px 25px;
-  align-items: flex-end;
-  .vIcon {
+  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 16px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  background: #fff;
+
+  &.clickable {
+    cursor: pointer;
   }
-  .icon-wrapper {
-    min-width: 36px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    .icon {
-      font-size: 24px;
-      line-height: 0;
-      color: white;
+
+  .summary-section {
+    flex-grow: 1;
+
+    p {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 17px;
+      margin: 0;
+      color: #7A7A9D;
+    }
+
+    h2 {
+      text-align: left;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 38px;
+      color: #16192C;
+      margin: 0;
     }
   }
 
-  .icon {
-    font-size: 26px;
-    line-height: 0;
-    font-weight: 600;
-  }
-  .title,
-  .value {
-    color: ${({ theme }) => theme.text.headerTable};
-    background: transparent;
-    font-size: 25px;
-    font-weight: 900;
-  }
-  .value-div {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-  .text-bottom {
-    font-size: 12px;
-    .percent-value,
-    .percent-value > i {
-      ${'' /* color: ${({ theme }) => theme.palette.primary}; */}
-      color: ${({ color }) => color}
-    }
+  .icon-section {
+    border-radius: 50%;
+    padding: 13px;
+    background: ${({ backgroundColor }) => backgroundColor};
+    height: fit-content;
 
-    .text {
-      color: ${({ theme }) => theme.color.gray};
+    & > * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
     }
   }
-  .title {
-    font-weight: 600;
-    font-size: 15px;
-  }
-  .vInfo {
-    flex: 1;
-    width: 100%;
-  }
-  .row {
-    display: flex;
-    justify-content: space-between;
+
+  @media (max-width: 1470px) {
+    padding: 18px;
+    .summary-section {
+      h2 {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
   }
 `;

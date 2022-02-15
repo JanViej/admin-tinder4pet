@@ -12,7 +12,7 @@ import { Pie, Bar, Line } from '@ant-design/charts';
 import SummaryCard from './components/SummaryCard';
 import theme from 'configs/theme/default';
 import PageTitle from 'components/common/PageTitle';
-
+import { PlusSquareOutlined, UserOutlined, AppstoreOutlined } from '@ant-design/icons';
 import firebase from 'firebase/app';
 
 import { getUsers } from '@redux/users/actions';
@@ -21,7 +21,7 @@ import { getStores } from '@redux/stores/actions';
 import { getApplications } from '@redux/applications/actions';
 
 import HomeWrapper from './styles';
-
+import SummaryRow from 'components/common/SummaryRow';
 // const dataApplications = [
 //   {
 //     address: '33 Ta My Duat',
@@ -234,6 +234,33 @@ const Home = () => {
     // dispatch(getSummaries());
     // eslint-disable-next-line
   }, []);
+
+  const summaries = [
+    {
+      backgroundColor: "#FFB8D0",
+      icon: <UserOutlined />,
+      key: "users",
+      path: "/",
+      title: "Users",
+      value: users?.length,
+    },
+    {
+      backgroundColor: "#FFAC9C",
+      icon: <PlusSquareOutlined />,
+      key: "vets",
+      path: "/",
+      title: "Vets",
+      value: vets?.length,
+    },
+    {
+      backgroundColor: "#FFBFB3",
+      icon: <AppstoreOutlined />,
+      key: "stores",
+      path: "/",
+      title: "Stores",
+      value: stores?.length,
+    },
+  ];
   return (
     <HomeWrapper>
       <PageTitle className="breadcrumb-section">
@@ -245,28 +272,8 @@ const Home = () => {
           </Breadcrumb.Item>
         </Breadcrumb>
       </PageTitle>
+      <SummaryRow summaries={summaries} />
       <Row style={{ width: '100%'}} className="w-100" gutter={[16, 16]}>
-        <Col md={8}>
-          <SummaryCard
-            color="#f58a45"
-            value={users?.length}
-            header="Users"
-          />
-        </Col>
-        <Col md={8}>
-          <SummaryCard
-            color="#3ebac2"
-            value={vets?.length}
-            header="Vets"
-          />
-        </Col>
-        <Col md={8}>
-          <SummaryCard
-            color="#F75D81"
-            value={stores?.length}
-            header="Stores"
-          />
-        </Col>
         <Col md={16}>
           <Card title="Users">
             <Line {...lineConfig} />

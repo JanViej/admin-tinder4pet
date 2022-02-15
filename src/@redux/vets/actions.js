@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 export const getVets = createAsyncThunk(
-  'users/getVets',
+  'vets/getVets',
   async (payload, thunkAPI) => {
     try {
       return firebase.firestore().collection('vets')
@@ -26,7 +26,7 @@ export const getVets = createAsyncThunk(
 );
 
 export const disableVet = createAsyncThunk(
-  'users/disableVet',
+  'vets/disableVet',
   async (payload, thunkAPI) => {
     try {
       await firebase.firestore().collection('vets').doc(payload.id)
@@ -34,6 +34,24 @@ export const disableVet = createAsyncThunk(
           isActive: payload.isActive,
         })
       return payload;
+    } catch (error) {
+      notification.error({
+        message: 'OOps',
+        description: error.message,
+      });
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+export const addVet = createAsyncThunk(
+  'vets/addVet',
+  async (payload, thunkAPI) => {
+    try {
+      const res = await firebase.firestore().collection('vets').add({
+        ...payload,
+      });
+      return res
     } catch (error) {
       notification.error({
         message: 'OOps',

@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 export const getStores = createAsyncThunk(
-  'users/getStores',
+  'stores/getStores',
   async (payload, thunkAPI) => {
     try {
       return firebase.firestore().collection('stores')
@@ -26,7 +26,7 @@ export const getStores = createAsyncThunk(
 );
 
 export const disableStore = createAsyncThunk(
-  'users/disableStore',
+  'stores/disableStore',
   async (payload, thunkAPI) => {
     try {
       await firebase.firestore().collection('stores').doc(payload.id)
@@ -43,3 +43,23 @@ export const disableStore = createAsyncThunk(
     }
   },
 );
+
+export const addStore = createAsyncThunk(
+  'stores/addStore',
+  async (payload, thunkAPI) => {
+    try {
+      const res = await firebase.firestore().collection('stores').add({
+        ...payload,
+      });
+      return res
+    } catch (error) {
+      notification.error({
+        message: 'OOps',
+        description: error.message,
+      });
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+

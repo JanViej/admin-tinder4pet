@@ -1,20 +1,38 @@
-import React, { useEffect } from 'react';
+/*eslint-disable*/
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getVets, disableVet } from '@redux/vets/actions';
-import { Breadcrumb, Table, Space, Avatar, Divider, Switch, Button, Row, Col } from 'antd';
+import {
+  Breadcrumb,
+  Table,
+  Space,
+  Avatar,
+  Divider,
+  Switch,
+  Button,
+  Row,
+  Col,
+  Image,
+} from 'antd';
 import { Link } from 'react-router-dom';
 import PageTitle from 'components/common/PageTitle';
-import { useHistory } from 'react-router';
-import {
-  EyeOutlined,
-} from '@ant-design/icons';
-import {HomeWrapper} from './styles';
+import { EyeOutlined } from '@ant-design/icons';
+import { HomeWrapper, DetailUserWrapper } from './styles';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const vets = useSelector(state => state.vets.data);
-  const loading = useSelector(state => state.vets.loading);
+  const vets = useSelector((state) => state.vets.data);
+  const loading = useSelector((state) => state.vets.loading);
+  const [currentData, setCurrentData] = useState();
+  const [visible, setVisible] = useState(false);
+  console.log('asd currentData', currentData);
+
+  const DescriptionItem = ({ title, content }) => (
+    <div className="site-description-item-profile-wrapper">
+      <p className="site-description-item-profile-p-label">{title}:</p>
+      {content}
+    </div>
+  );
 
   const columns = [
     {
@@ -22,11 +40,9 @@ const Home = () => {
       dataIndex: 'name',
       key: 'name',
       render: (text, row) => (
-        <Space style={{ display: 'flex', alignItems: 'center'}}>
+        <Space style={{ display: 'flex', alignItems: 'center' }}>
           <Avatar src={row.cover} size={56} />
-          <b>
-            {text}
-          </b>
+          <b>{text}</b>
         </Space>
       ),
     },
@@ -40,28 +56,6 @@ const Home = () => {
       dataIndex: 'admin',
       key: 'admin',
       // width: 260,
-      render: (text, row) => (
-        <Row gutter={[10, 10]}>
-          <Col span={6}>
-            Name:
-          </Col>
-          <Col span={18}>
-            {text}
-          </Col>
-          <Col span={6}>
-            Email: 
-          </Col>
-          <Col span={18}>
-            {row?.email}
-          </Col>
-          <Col span={6}>
-            Phone:
-          </Col>
-          <Col span={18}>
-            {row?.phone}
-          </Col>
-        </Row>
-      ),
     },
 
     {
@@ -76,10 +70,14 @@ const Home = () => {
       render: (isActive, row) => (
         <Switch
           checked={isActive}
-          onChange={checked => dispatch(disableVet({
-          id: row.id,
-          isActive: checked,
-        }))}
+          onChange={(checked) =>
+            dispatch(
+              disableVet({
+                id: row.id,
+                isActive: checked,
+              })
+            )
+          }
         />
       ),
     },
@@ -89,9 +87,14 @@ const Home = () => {
       width: 120,
       render: (text, record) => (
         <Space size="middle">
-          <Button className="btn-view" onClick={() => history.push(`/vets/${record.id}`)}>
+          <Button
+            className="btn-view"
+            onClick={() => {
+              setCurrentData(record);
+              setVisible(true);
+            }}
+          >
             <EyeOutlined />
-
           </Button>
         </Space>
       ),
@@ -115,6 +118,66 @@ const Home = () => {
       </PageTitle>
       <Divider />
       <Table columns={columns} loading={loading} dataSource={vets} />
+      <DetailUserWrapper
+        placement="right"
+        onClose={() => {
+          setVisible(false);
+        }}
+        visible={visible}
+        width={640}
+        closable={false}
+      >
+        <p
+          className="site-description-item-profile-p"
+          style={{ marginBottom: 24 }}
+        >
+          Vet Profile: <b>{currentData?.name}</b>
+        </p>
+        <Divider />
+        <p className="site-description-item-profile-p">Manager</p>
+        <Row>
+          <Col span={12}>
+            <DescriptionItem title="Name" content={currentData?.admin} />
+          </Col>
+          <Col span={12}>
+            <DescriptionItem title="Phone No" content={currentData?.phone} />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <DescriptionItem title="Address" content={currentData?.address} />
+          </Col>
+          <Col span={12}>
+            <DescriptionItem title="Email" content={currentData?.email} />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <DescriptionItem
+              title="Description"
+              content={currentData?.description}
+            />
+          </Col>
+        </Row>
+        <Divider />
+        <p className="site-description-item-profile-p">Images from Vet</p>
+        <Row>
+          <Col span={24}>
+            {/* <DescriptionItem title="Email" content="AntDesign@example.com" /> */}
+            <Image.PreviewGroup>
+              {currentData?.images?.map((item) => (
+                <Image
+                  width={50}
+                  src={item?.url}
+                  preview={{
+                    mask: <EyeOutlined />,
+                  }}
+                />
+              ))}
+            </Image.PreviewGroup>
+          </Col>
+        </Row>
+      </DetailUserWrapper>
     </HomeWrapper>
   );
 };
