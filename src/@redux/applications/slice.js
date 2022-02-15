@@ -20,7 +20,7 @@ const { reducer } = createSlice({
       state.data = payload;
       state.loading = false;
     },
-    [getApplications.rejected]: (state, { payload }) => {
+    [getApplications.rejected]: (state) => {
       state.loading = false;
     },
     // [disableUser.fulfilled]: (state, { payload }) => {

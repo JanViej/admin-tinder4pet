@@ -79,7 +79,7 @@ const Home = () => {
       title: 'Application Type',
       dataIndex: 'type',
       key: 'type',
-      render: (type, row) => (
+      render: (type) => (
         <Tag>
           {
           type
